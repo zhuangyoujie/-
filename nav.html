@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <script src="jquery-1.11.3.js"></script>
+    <style>
+
+        #main {
+            position: relative;
+            list-style: none;
+            background: #6BBE92;
+            font-weight: 400;
+            display: inline-block;
+            padding: 0;
+            margin: 50px auto;
+        }
+
+        #main li {
+            font-size: 0.8rem;
+            display: inline-block;
+            position: relative;
+            padding: 15px 20px;
+            cursor: pointer;
+            min-width: 120px;
+        }
+
+        #marker {
+            height: 6px;
+            background: #3E8760 !important;
+            position: absolute;
+            bottom: 0;
+            width: 120px;
+            z-index: 2;
+            -webkit-transition: all 0.35s;
+            -moz-transition: all 0.35s;
+            -ms-transition: all 0.35s;
+            transition: all 0.35s;
+        }
+
+        .active {
+            color: #fff;
+        }
+
+    </style>
+
+</head>
+<body>
+<nav>
+    <ul id="main">
+        <li>主页</li>
+        <li>关于我们</li>
+        <li>项目分类</li>
+        <li>联系我们</li>
+        <div id="marker"></div>
+    </ul>
+    <script>
+        $('#main li').click(function () {
+            $('#main li').removeClass('active')
+            $(this).addClass('active');
+            if (this.innerHTML == '主页') {
+                $("#marker").css('-webkit-transform', 'translate(0, 0)')
+            }
+            if (this.innerHTML == '关于我们') {
+                $("#marker").css('-webkit-transform', 'translate(150px, 0)')
+            }
+            if (this.innerHTML == '项目分类') {
+                $("#marker").css('-webkit-transform', 'translate(300px, 0)')
+            }
+            if (this.innerHTML == '联系我们') {
+                $("#marker").css('-webkit-transform', 'translate(450px, 0)')
+            }
+
+        })
+    </script>
+</nav>
+</body>
+</html>

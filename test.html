@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<script>
+    $.ajax({
+        type: "get",
+        url:"http://localhost:3000/users/userinfo" ,
+        success: function (jsons) {
+            var jsonData = JSON.parse(jsons);
+            // console.log(jsonData.code)
+            if (jsonData.code == 1) {
+                console.log(jsonData.data)
+            }else{
+                this.error(jsons);
+            }
+        },
+        error: function (xhr, textStatus, errorThrown) {
+
+        }
+    });
+
+
+    // var result = document.getElementById("result");
+    // function handleInputChange(event) {
+    //     // 获取当前选中的文件
+    //     var file = event.target.files[0],
+    //             imgMaxSize = 1024 * 40;
+    //     // 检查文件类型
+    //     if (['jpeg', 'png', 'gif', 'jpg'].indexOf(file.type.split("/")[1]) < 0) {
+
+    //         return;
+    //     }
+
+    //     // 文件大小限制
+    //     if (file.size > imgMaxSize) {
+    //         alert('文件过大')
+    //     }
+    //     readFile(file)
+    // }
+    // function readFile(file){
+    //     var reader = new FileReader();
+    //     reader.readAsDataURL(file);
+    //     reader.onload = function(e){
+    //         result.innerHTML = '<img src="'+this.result+'" alt=""/>'
+    //     }
+    // }
+    //    function transformFileToFormData(file) {
+//        const formData = new FormData();
+//        // 自定义formData中的内容
+//        // type
+//        formData.append('type', file.type);
+//        // size
+//        formData.append('size', file.size || "image/jpeg");
+//        // name
+//        formData.append('name', file.name);
+//        // lastModifiedDate
+//        formData.append('lastModifiedDate', file.lastModifiedDate);
+//        // append 文件
+//        formData.append('file', file);
+//        // 上传图片
+//        uploadImg(formData);
+//    }
+    // 上传图片
+//    function uploadImg(formData) {
+//        var xhr = new XMLHttpRequest();
+//        xhr.onreadystatechange = function () {
+//            if (xhr.readyState === 4) {
+//                var result = JSON.parse(xhr.responseText);
+//                if (xhr.status === 200) {
+//                    // 上传成功
+//                } else {
+//                    // 上传失败
+//                }
+//            }
+//        };
+//        xhr.open('POST', '/uploadUrl', true);
+//        xhr.send(formData);
+//    }
+</script>
+</body>
+</html>

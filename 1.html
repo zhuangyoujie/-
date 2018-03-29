@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>Title</title>
+    <script src="jquery-1.11.3.js"></script>
+    <style type="text/css">
+        body, div, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav {
+            background-color: black;
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            width: 80%;
+            margin: 10px auto;
+            text-align: center;
+            height: 37px;
+        }
+
+        .nav a {
+            padding: 10px;
+            color: white;
+            line-height: 30px;
+            text-decoration: none;
+            height: 37px;
+        }
+
+        #navslip {
+            height: 2px;
+            background-color: #8f919e;
+            position: absolute;
+            bottom: 7px;
+            width: 0px;
+            left: 0px;
+            display: none;
+            overflow: hidden;
+        }
+    </style>
+    <style>
+        body {
+            font-family: 'Lucida Grande', 'Helvetica', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+<iframe src="http://cpc.maizhe.com/ad?id=112" frameborder="0"></iframe>
+
+<!--<button onclick="Toast('您点击了弹框按钮！',2000);">Toast</button>-->
+//自定义弹框
+<script>
+
+    var Toast = function(options) {
+        var defaults ={'msg':'hello'};
+        this.options = $.extend({},defaults, options);
+        // 初始化
+        // this.init();
+    };
+    Toast.prototype = {
+        // init:function () {
+        //    this.creatEl();
+        // },
+        creatEl:function () {
+
+        },
+        show:function () {
+            var toastDiv = document.createElement('div');
+            toastDiv.innerHTML = this.options.msg;
+            toastDiv.style.cssText = "width:60%; min-width:150px; background:#000; opacity:0.5; height:40px; color:#fff; line-height:40px; text-align:center; border-radius:5px; position:fixed; top:40%; left:20%; z-index:999999; font-weight:bold;";
+            document.body.appendChild(toastDiv);
+            setTimeout(function () {
+                var d = 0.5;
+                toastDiv.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
+                toastDiv.style.opacity = '0';
+                setTimeout(function () {
+                    document.body.removeChild(toastDiv)
+                }, d * 1000);
+            }, 1000);
+        }
+    };
+  var toast =  new Toast();
+    toast.show();
+</script>
+<script>
+
+    duration = isNaN(duration) ? 3000 : duration;
+
+</script>
+</body>
+</html>
