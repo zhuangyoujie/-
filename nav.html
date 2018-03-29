@@ -7,7 +7,10 @@
           content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <script src="jquery-1.11.3.js"></script>
     <style>
-
+        * {
+            margin: 0;
+            padding: 0;
+        }
         #main {
             position: relative;
             list-style: none;
@@ -17,15 +20,16 @@
             padding: 0;
             margin: 50px auto;
         }
-
         #main li {
             font-size: 0.8rem;
             display: inline-block;
             position: relative;
             padding: 15px 20px;
             cursor: pointer;
+            z-index: 5;
             min-width: 120px;
         }
+
 
         #marker {
             height: 6px;
@@ -40,10 +44,35 @@
             transition: all 0.35s;
         }
 
-        .active {
-            color: #fff;
-        }
+        /*#main li:nth-child(1):hover  ~ #marker {*/
+            /*-webkit-transform: translate(0px, 0);*/
+            /*-moz-transform: translate(0px, 0);*/
+            /*-ms-transform: translate(0px, 0);*/
+            /*transform: translate(0px, 0);*/
+        /*}*/
 
+        /*#main li:nth-child(2):hover~ #marker {*/
+            /*-webkit-transform: translate(150px, 0);*/
+            /*-moz-transform: translate(150px, 0);*/
+            /*-ms-transform: translate(150px, 0);*/
+            /*transform: translate(150px, 0);*/
+        /*}*/
+
+
+        /*#main li:nth-child(3):hover ~ #marker{*/
+            /*-webkit-transform: translate(240px, 0);*/
+            /*-moz-transform: translate(240px, 0);*/
+            /*-ms-transform: translate(240px, 0);*/
+            /*transform: translate(240px, 0);*/
+        /*}*/
+
+
+        /*#main li:nth-child(4):hover  ~ #marker {*/
+            /*-webkit-transform: translate(360px, 0);*/
+            /*-moz-transform: translate(360px, 0);*/
+            /*-ms-transform: translate(360px, 0);*/
+            /*transform: translate(360px, 0);*/
+        /*}*/
     </style>
 
 </head>
@@ -60,17 +89,17 @@
         $('#main li').click(function () {
             $('#main li').removeClass('active')
             $(this).addClass('active');
-            if (this.innerHTML == '主页') {
-                $("#marker").css('-webkit-transform', 'translate(0, 0)')
+            if( this.innerHTML=='主页') {
+                $("#marker").css({'-webkit-transform':'translate(0, 0)','-moz-transform':'translate(0, 0)','-ms-transform':'translate(0, 0)','transform':'translate(0, 0)'})
             }
-            if (this.innerHTML == '关于我们') {
-                $("#marker").css('-webkit-transform', 'translate(150px, 0)')
+            if( this.innerHTML=='关于我们'){
+                $("#marker").css({'-webkit-transform':'translate(0, 0)','-moz-transform':'translate(0, 0)','-ms-transform':'translate(0, 0)','transform':'translate(150px, 0)'})
             }
-            if (this.innerHTML == '项目分类') {
-                $("#marker").css('-webkit-transform', 'translate(300px, 0)')
+            if( this.innerHTML=='项目分类'){
+                $("#marker").css({'-webkit-transform':'translate(0, 0)','-moz-transform':'translate(0, 0)','-ms-transform':'translate(0, 0)','transform':'translate(300px, 0)'})
             }
-            if (this.innerHTML == '联系我们') {
-                $("#marker").css('-webkit-transform', 'translate(450px, 0)')
+            if( this.innerHTML=='联系我们'){
+                $("#marker").css({'-webkit-transform':'translate(0, 0)','-moz-transform':'translate(0, 0)','-ms-transform':'translate(0, 0)','transform':'translate(450px, 0)'})
             }
 
         })
